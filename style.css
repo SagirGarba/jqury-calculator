@@ -1,6 +1,6 @@
 input {
 
-    width: 415px!important;
+    width: 272px!important;
     margin-bottom: 4px;
 }
 
@@ -10,13 +10,58 @@ input {
     margin-bottom: 4px;
 }
 
-.form-control{
-    font-size: 30px;
-    height: 90px;
-}
-
 body {
     background: #333;
-    color: #fff;
+    color: #00FF00;
+}
+
+.form-control{
+    font-size: 20px;
+    height: 50px;
+}
+
+button{
+    width: 65px;
+    height: 65px;
+    margin-bottom: 4PX;
+}
+
+.footer {
+    
+    
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+}
+
+.footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer__link {
+    font-weight: var(--fw-bold);
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: .7;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
 }
 
