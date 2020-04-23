@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="calculator, sagir garba, jquery, bootsrtap, fasaha, yola, nigeria">
+    <title>calculator</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h5 class="text-center text-light"> Designed and Coded By </h5>
+<h4 class="text-center text-light"><a href="https://twitter.com/Sager_Garba" target="_blank" class="text-decoration-none text-light">Sagir Garba</a></h4>
+    <br>
+
+    <main class="container">
+        <div align="center">
+        <div>
+            <input type="text" class="form-control input-lg">
+        </div>
+        <div>
+            <button class="btn btn-lg btn-light btn-num bg-secondary" data-val="9">9</button>
+            <button class="btn btn-lg btn-light btn-num bg-secondary" data-val="8">8</button>
+            <button class="btn btn-lg btn-light btn-num bg-secondary" data-val="7">7</button>
+            <button class="btn btn-lg btn-light btn-act bg-info" data-val=" / ">&divide;</button>
+        </div>
+        <div align="center">
+            <button class="btn btn-lg btn-light btn-num bg-secondary" data-val="6">6</button>
+            <button class="btn btn-lg btn-light btn-num bg-secondary" data-val="5">5</button>
+            <button class="btn btn-lg btn-light btn-num bg-secondary" data-val="4">4</button>
+            <button class="btn btn-lg btn-light btn-act bg-info" data-val=" x ">&times;</button>
+        </div>
+        <div align="center">
+            <button class="btn btn-lg btn-light btn-num bg-secondary" data-val="3">3</button>
+            <button class="btn btn-lg btn-light btn-num bg-secondary" data-val="2">2</button>
+            <button class="btn btn-lg btn-light btn-num bg-secondary" data-val="1">1</button>
+            <button class="btn btn-lg btn-light btn-act bg-info" data-val=" - ">-</button>
+        </div>
+        <div align="center">
+            <button class="btn btn-lg btn-warning btn-act bg-secondary">CLEAR</butto n >
+            <button class="btn btn-lg btn-light btn-num bg-secondary" data-val="0">0</button>
+            <button class="btn btn-lg btn-success btn-act bg-success">=</button>
+              <button class="btn btn-lg btn-light btn-act bg-info" data-val=" + ">+</button>
+            </div>
+        </div>
+    
+    </main>
+
+
+
+
+
+    <script src="jquery.js"></script>
+    <script src="popper.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $(".btn-light").on("click", function(){
+
+                if($("input").hasClass("needClear")) {
+                    if($(this).hasClass("btn-num")){
+                        $("input").val("");
+                        $("input").removeClass("needClear");
+                    }
+                    if($(this).hasClass("btn-act")){
+                        $("input").removeClass("needClear");
+                    }
+                }
+
+
+                var current_val = $("input").val();
+                var val         = $(this).data("val");
+                $("input").val(current_val+val);
+            });
+
+            $(".btn-warning").on("click", function(){
+                $("input").val("");
+            });
+
+            $(".btn-success").on("click", function(){
+                var val = $("input").val().split(" ");
+                var result = "ERROR";
+
+                if(val[1] == '/') {
+                    result = parseInt(val[0]) / parseInt(val[2]);
+                }
+
+                if(val[1] == 'x'){
+                    result = parseInt(val[0]) * parseInt(val[2]);
+                }
+
+                if(val[1] == '-'){
+                    result = parseInt(val[0]) - parseInt(val[2]);
+                }
+
+                if(val[1] == '+') {
+                    result = parseInt(val[0]) + parseInt(val[2]);
+                }
+
+                $("input").val(result.toLocaleString());
+                $("input").addClass("needClear");
+               
+            });
+           
+        });
+    </script>
+</body>
+</html>

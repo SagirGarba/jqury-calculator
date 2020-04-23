@@ -1,0 +1,22 @@
+input {
+
+    width: 415px!important;
+    margin-bottom: 4px;
+}
+
+.btn {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 4px;
+}
+
+.form-control{
+    font-size: 30px;
+    height: 90px;
+}
+
+body {
+    background: #333;
+    color: #fff;
+}
+
